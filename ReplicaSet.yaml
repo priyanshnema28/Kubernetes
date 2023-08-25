@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myReplicaSet
+spec:
+  Replicas: 2
+  selector: 
+    matchLabels:
+      app: frontend
+  template:
+    metadata: 
+      name: mypod
+      labels: 
+        app: frontend
+    spec:
+      containers:
+        - name: mywebcontainer
+          image: "wordpress"
+          ports:
+           - containerPort: 80
+
+

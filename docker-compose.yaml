@@ -1,0 +1,25 @@
+services:
+  webapp01:
+    image: wordpress
+    ports:
+     - "80:80"
+    container_name: "wordpress"
+    volumes:
+     - "wordpressv1:/var/www/html"
+  
+  db01:
+    image: mysql
+    ports:
+     - "3306:3306"
+    container_name: "mydb"
+    volumes:
+     - "myvol:/var/lib/mysql"
+    environment:
+      - MYSQL_USER=wordpress_user
+      - MYSQL_PASSWORD=wordpress_password 
+      - MYSQL_DATABASE=wordpress 
+      - MYSQL_ROOT_PASSWORD="redhat"
+    
+volumes:
+  wordpressv1: {}
+  myvol: {}

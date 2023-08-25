@@ -1,0 +1,15 @@
+#akms
+apiVersion: v1
+kind: Service
+metadata:
+  name: Myservice
+spec:
+  selector:
+    app: frontend
+  type: NodePort
+  ports:
+   - port: 80 #ClusterIP port
+     targetPort: 80 #ContainerPort
+     nodePort: 30567 
+      
+#nodePort can be anything of your choice and if not assigned will randomly choose one port from range 30000-30767#

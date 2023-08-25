@@ -1,0 +1,13 @@
+#akms
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-serivce
+spec:
+  type: NodePort
+  selector:
+    app: database
+  ports:
+    - port: 3306 #ClusterIP
+      targetPort: 3306 #containerPort
+      nodePort: 30879 #nodePort
