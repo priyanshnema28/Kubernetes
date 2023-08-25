@@ -1,0 +1,15 @@
+#akms
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  type: NodePort #ClusterIP/NodePort/LoadBalancer
+  ports:
+    - port: 80 #ClusterIP
+      targetPort: 80 #ContainerPort
+  selector:
+    app: frontend
+
+
+
